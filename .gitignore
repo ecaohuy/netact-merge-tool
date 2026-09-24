@@ -1,0 +1,20 @@
+# Telecom input/output data: keep it out of the repository
+*.rar
+*.zip
+*.xlsx
+*.csv
+*.xml
+*（NSN*）/
+New_test/
+New_test_merged/
+Cr5/
+merged/
+Merged/
+
+# Python / build
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.spec

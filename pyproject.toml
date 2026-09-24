@@ -1,0 +1,9 @@
+[project]
+name = "netact-merge-tool"
+version = "1.0.0"
+description = "Merge NetAct CR files (xlsx / csv) from several site folders or .rar/.zip archives"
+requires-python = ">=3.10"
+dependencies = ["openpyxl>=3.1"]
+
+[dependency-groups]
+build = ["pyinstaller>=6.0"]
