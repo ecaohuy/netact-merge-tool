@@ -19,6 +19,8 @@ jobs:
       - name: Smoke test (import merge in the build env)
         run: uv run python -c "import merge, merge_gui; print('ok')"
       - uses: actions/upload-artifact@v4
+        # artifact storage can hit the account quota; the release below still gets the exe
+        continue-on-error: true
         with:
           name: MergeTool-windows
           path: dist/MergeTool.exe
