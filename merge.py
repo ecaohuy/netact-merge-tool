@@ -8,7 +8,8 @@ Rules:
     8 steps (extra "delete LNADJGNB"):     1->1, 2->2, 3->3, 4->4.1, 5->4, 6->5, 7->6, 8->7
 - Header (first 2 rows + following blank rows) is kept once; only values are merged.
 - A group with a single source file is copied unchanged (all sheets kept).
-- For xlsx, only the "CR detail new" sheet is merged. Side-by-side tables in that
+- For xlsx, only the "CR detail new" sheet is merged; the "CR" and "CR detail old"
+  sheets are kept unchanged from the first file of the group. Side-by-side tables in that
   sheet (e.g. LNADJ | LNREL) are stacked independently so no gaps appear.
 
 Input can be a folder or an archive (.rar / .zip); output can be a folder or an
@@ -114,9 +115,7 @@ def blocks_of(ws):
 def merge_xlsx(items, out: Path):
     template = items[0][1]
     wb_out = openpyxl.load_workbook(template)
-    for name in wb_out.sheetnames:
-        if name != SHEET:
-            del wb_out[name]
+    # other sheets ("CR", "CR detail old") are kept as they are in the first file
     ws_out = wb_out[SHEET]
     blocks = blocks_of(ws_out)
     header_vals = [[c.value for c in row] for row in ws_out.iter_rows(max_row=HEADER_ROWS)]

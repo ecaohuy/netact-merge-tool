@@ -8,7 +8,7 @@ Merges NetAct CR files (`.xlsx` / `.csv`) from several site folders into one fil
   - 6 steps: 1→1, 2→2, 3→3, 4→5, 5→6, 6→7
   - 8 steps: 1→1, 2→2, 3→3, 4→4.1, 5→4, 6→5, 7→6, 8→7
 - The header (2 rows plus the blank rows under it) is kept once, and only the values are merged.
-- In `.xlsx` files only the `CR detail new` sheet is merged. Side-by-side tables (e.g. LNADJ | LNREL) are stacked separately.
+- In `.xlsx` files only the `CR detail new` sheet is merged. The `CR` and `CR detail old` sheets are kept unchanged from the first file of each group. Side-by-side tables (e.g. LNADJ | LNREL) are stacked separately.
 - A file that exists in only one site folder is copied unchanged.
 - `.~` lock files, `*_profile.xml` and any `merged/` folder are ignored.
 
